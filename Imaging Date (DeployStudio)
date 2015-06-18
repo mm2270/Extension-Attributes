@@ -1,0 +1,16 @@
+#!/bin/sh
+
+## Captures the date the Mac was imaged from either the ds_finalize.log or ds_imaging.log files, if either are present. Otherwise returns a value of "N/A"
+## Note: This Extension Attribute only works with DeployStudio imaging
+
+if [ -f /var/log/ds_finalize.log ]; then
+	imageDate=$( mdls -name kMDItemFSCreationDate /var/log/ds_finalize.log | awk '{if ($1 != "(null)") print $3,$4}'  )
+elif [ -f /var/log/ds_imaging.log ]; then
+	imageDate=$( mdls -name kMDItemFSCreationDate /var/log/ds_imaging.log | awk '{if ($1 != "(null)") print $3,$4}'  )
+elif [ -d /Library/Application\ Support/JAMF/Receipts/ ]; then
+	imageDate=$( mdls -name kMDItemFSCreationDate /Library/Application\ Support/JAMF/Receipts/ | awk '{if ($1 != "(null)") print $3,$4}'  )
+else
+	imageDate="N/A"
+fi
+
+echo "<result>$imageDate</result>"
