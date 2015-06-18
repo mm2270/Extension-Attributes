@@ -1,0 +1,11 @@
+#!/bin/sh
+
+WaitRoomDir="/Library/Application Support/JAMF/Waiting Room/"
+
+Contents=$( find "$WaitRoomDir" -maxdepth 1 -iname *.pkg -or -iname *.mpkg -or -iname *.dmg | awk -F"/" '{print $NF }' )
+
+if [ "$Contents" != "" ]; then
+	echo "<result>$Contents</result>"
+else
+	echo "<result>Empty</result>"
+fi
