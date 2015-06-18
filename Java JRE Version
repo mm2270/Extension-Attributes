@@ -1,0 +1,9 @@
+#!/bin/sh
+
+if [ -d "/Library/Internet Plug-Ins/JavaAppletPlugin.plugin" ]; then
+	versResult=$(/usr/bin/defaults read "/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Info.plist" CFBundleVersion)
+else
+	versResult="Not Installed"
+fi
+
+echo "<result>${versResult}</result>"
