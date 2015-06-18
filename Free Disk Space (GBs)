@@ -1,0 +1,5 @@
+#!/bin/sh
+
+DiskSpace=$(/bin/df -H / | awk '{getline; print $4}' | sed 's/[A-Z]//')
+
+echo "<result>$DiskSpace</result>"
