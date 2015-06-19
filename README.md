@@ -1,6 +1,9 @@
 # Extension-Attributes
 A collection of some Extension Attribute bash scripts for use with Casper Suite
 
+####ARD Status  
+This Extension Attributes reports on the status of Apple Remote Management (ARD) It will report either **On** or **Off** as a result. It will not report on any settings within the Remote Management framework, only if its currently enabled and listening for incoming connections.
+
 ####Free Disk Space (GBs)  
 Gathers the free disk space from the boot volume as reported by `df -H` (uses human readable notation)  
 Although there are ways of gathering this information in bytes, kb or other increments and performaing math calculations, I found these were not providing reliable results. The `df -H` command output seems to most closely match the free disk space as reported by Finder, so that is what this EA uses.
