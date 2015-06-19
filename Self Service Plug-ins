@@ -1,0 +1,16 @@
+#!/bin/bash
+
+## This EA captures managed Self Service URL plug-ins only
+
+pluginDir="/Library/Application Support/JAMF/Self Service/Managed Plug-ins/"
+
+if [[ $(ls -l "$pluginDir" 2>/dev/null | wc -l | sed 's/^ *//') -gt 0 ]]; then
+	for plugin in $(ls "$pluginDir" | grep ".plist$"); do
+		plugInName=$(defaults read "${pluginDir}$plugin" title)
+		installedPlugIns+=("${plugInName}")
+	done
+else
+	installedPlugIns=("None Installed")
+fi
+
+echo "<result>$(printf '%s\n' "${installedPlugIns[@]}")</result>"
