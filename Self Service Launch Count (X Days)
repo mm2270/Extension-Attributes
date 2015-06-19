@@ -1,0 +1,24 @@
+#!/bin/sh
+
+## EA - Self Service Launches over X days
+## Special Note: This EA can be duplicated and the appPath variable below changed to report on
+## the launch count for any installed application on the system.
+
+## Modify this integer value to the timeframe you want to pull launch count for.
+days="7"
+
+## Path to Self Service.app
+appPath="/Applications/Self Service.app"
+
+daysSecs=$((days*86400))
+timeSec=$( date +"%s" )
+timeSecMinXd=$(( $timeSec-daysSecs ))
+dateMinX=$( date -jf "%s" "$timeSecMinXd" +"%Y%m%d" )
+
+if [ -d "${appPath}" ]; then
+	AppUsesLastXDays=$( mdls -name kMDItemUsedDates "${appPath}" | awk '/\+0000/{print substr($1,2,11)}' | sed 's/-//g' | awk -v y=$dateMinX '$1 >= y {print}' | wc -l )
+else
+	AppUsesLastXDays="Not Installed"
+fi
+
+echo "<result>$(echo $AppUsesLastXDays)</result>"
