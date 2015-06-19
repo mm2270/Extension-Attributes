@@ -40,3 +40,6 @@ This would indicate 12 hours and 15 minutes.
 This Extension Attribute can roughly report on how many times the Self Service application (or any other application) was launched on a day basis, within a specified number of days. Note that because this uses `mdls` it is not possible to know how many times Self Service, or any other application, was launched within the same 24 hour period. Once 24 hours elapses, Spotlight condenses all previous uses into a single day entry.  
 However, this EA can at least give you a generalized overview of how often within a week or month the application is used.  
 Note that you can swap in a different application path within the EA to report on any other installed application on your client systems.
+
+####Self Service Plug-ins  
+This Extension Attribute will report the names (titles) of any installed managed Self Service URL plug-ins. If none are installed, it will report that as well.
