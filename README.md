@@ -4,9 +4,12 @@ A collection of some Extension Attribute bash scripts for use with Casper Suite
 ####ARD Status  
 This Extension Attributes reports on the status of Apple Remote Management (ARD) It will report either **On** or **Off** as a result. It will not report on any settings within the Remote Management framework, only if its currently enabled and listening for incoming connections.
 
+####Current Wi-Fi Network  
+This Extension Attribute reports on the current Wi-Fi network name, if available. If no Wi-Fi network is connected to, it will report **No current wireless network**  
+
 ####Free Disk Space (GBs)  
-Gathers the free disk space from the boot volume as reported by `df -H` (uses human readable notation)  
-Although there are ways of gathering this information in bytes, kb or other increments and performaing math calculations, I found these were not providing reliable results. The `df -H` command output seems to most closely match the free disk space as reported by Finder, so that is what this EA uses.
+This Extension Attribute gathers the free disk space from the boot volume as reported by `df -H` (uses human readable notation)  
+Although there are ways of gathering this information in bytes, kb or other increments and performing math calculations, I found these were not providing reliable results. The `df -H` command output seems to most closely match the free disk space as reported by Finder, so that is what this EA uses.
 
 ####Imaging Date (DeployStudio)
 This Extension Attribute is designed primarily to work when Macs are imaged with DeployStudio, not with Casper Imaging. However, it can also be used with Casper Imaging, but may not provide the most accurate results.  
