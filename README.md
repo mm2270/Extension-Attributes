@@ -32,9 +32,9 @@ It is suggested that this EA be created and saved in Date format in your JSS. Th
 To capture all Macs with an uptime of greater than 7 days, as an example.
 
 ####Uptime (Hours)  
-This Extension Attribute is similar to the above Last Boot Time one, except that it reports the total uptime calculated in hours, with a 2 number decimal. For example, a sample output from this EA may show:  
+This Extension Attribute is similar to the above Last Boot Time one, except that it reports the total uptime calculated in hours, in a 'hundredths' decimal notation value. For example, a sample output from this EA may show:  
 `12.25`  
-This would indicate 12 hours and 15 minutes.
+This would indicate 12 and 1/4 hours, or 12 hours and 15 minutes.
 
 ####Self Service Launch Count (X Days)
 This Extension Attribute can roughly report on how many times the Self Service application (or any other application) was launched on a day basis, within a specified number of days. Note that because this uses `mdls` it is not possible to know how many times Self Service, or any other application, was launched within the same 24 hour period. Once 24 hours elapses, Spotlight condenses all previous uses into a single day entry.  
